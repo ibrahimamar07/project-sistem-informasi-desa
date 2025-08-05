@@ -9,17 +9,23 @@ use App\Models\Pengguna;
 
 class AuthNewController extends Controller
 {
+    
     public function showLogin()
-    {
-        return view('authnew.login');
+{
+    if (Auth::guard('pengguna')->check()) {
+        return redirect('/dashboard');
     }
+    return view('authnew.login');
+}
 
     public function login(Request $request)
     {
+         
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
+        
 
         if (Auth::guard('pengguna')->attempt($credentials)) {
             $request->session()->regenerate();

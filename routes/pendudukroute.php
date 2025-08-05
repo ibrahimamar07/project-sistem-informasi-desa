@@ -6,8 +6,14 @@ use App\Http\Controllers\PenggunaController;
 use Illuminate\Support\Facades\Route;
 
 // Halaman login dan register
+Route::prefix('web-b')->name('web-b.')->group(function () {
+    Route::get('/', function () {
+        return redirect()->route('loginpenduduk');
+    });
+});
+
 Route::get('/loginpenduduk', [AuthNewController::class, 'showLogin'])->name('loginpenduduk');
-Route::post('/login', [AuthNewController::class, 'login'])->name('login.submit');
+Route::post('/loginpenduduk', [AuthNewController::class, 'login'])->name('login.submit');
 
 Route::get('/register', [AuthNewController::class, 'showRegister'])->name('register');
 Route::post('/register', [AuthNewController::class, 'register'])->name('register.submit');

@@ -12,6 +12,9 @@ Route::prefix('web-b')->name('web-b.')->group(function () {
     });
 });
 
+
+Route::middleware(['web', \App\Http\Middleware\SetPendudukSession::class])->group(function () {
+    // .................
 Route::get('/loginpenduduk', [AuthNewController::class, 'showLogin'])->name('loginpenduduk');
 Route::post('/loginpenduduk', [AuthNewController::class, 'login'])->name('login.submit');
 
@@ -31,4 +34,5 @@ Route::middleware('auth:pengguna')->group(function () {
     // Profil Pengguna
     Route::get('/profile', [PenggunaController::class, 'show'])->name('user.profile');
     Route::put('/profile', [PenggunaController::class, 'update'])->name('user.profile.update');
+});
 });

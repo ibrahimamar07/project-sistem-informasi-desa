@@ -19,14 +19,14 @@ class UserSeeder extends Seeder
 
         // Tenaga Pendidik
         User::create([
-            'name' => 'ghifari ganteng',
+            'name' => 'cristiano ronaldo',
             'username' => 'Tenaga Pendidik 1',
             'password' => 'pendidik123',
             'role' => 'tenaga_pendidik',
         ]);
 
         User::create([
-            'name' => 'ghifari cakep',
+            'name' => 'hala madrid',
             'username' => 'Tenaga Pendidik 2',
             'password' => 'pendidik123',
             'role' => 'tenaga_pendidik',

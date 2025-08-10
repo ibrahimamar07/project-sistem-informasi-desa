@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\SuratMasuk;
 use App\Models\SuratKeluar;
 use App\Models\PerihalSurat;
+use Illuminate\Support\Facades\Storage;
+
 
 
 class LaporanController extends Controller
@@ -15,7 +17,7 @@ class LaporanController extends Controller
         return view('laporan.index');
     }
 
-   public function cetak(Request $request)
+ public function cetak(Request $request)
 {
     $request->validate([
         'jenis_surat' => 'required|in:masuk,keluar',
@@ -24,21 +26,24 @@ class LaporanController extends Controller
     ]);
 
     if ($request->jenis_surat === 'masuk') {
-        $data = SuratMasuk::with('perihalsurat') 
-            ->where('no_surat', $request->nomor)
+        $data = SuratMasuk::where('no_surat', $request->nomor)
             ->whereDate('tanggal', $request->tanggal)
             ->first();
     } else {
-        $data = SuratKeluar::with('perihalsurat')
-            ->where('no_surat', $request->nomor)
+        $data = SuratKeluar::where('no_surat', $request->nomor)
             ->whereDate('tanggal', $request->tanggal)
             ->first();
     }
 
-    return view('laporan.show', [
-        'data' => $data,
-        'jenis' => $request->jenis_surat,
-    ]);
+    if (!$data || !$data->path || !Storage::disk('public')->exists($data->path)) {
+        return back()->with('error', 'File tidak ditemukan.');
+    }
+
+    $filename = basename($data->path);
+    $relativePath = str_replace('storage/', '', $data->path);
+
+return Storage::disk('public')->download($relativePath, $filename);
 }
+
 
 }

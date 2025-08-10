@@ -4,6 +4,7 @@
 <div class="container mt-5">
     <h3>Laporan Surat</h3>
     <form action="{{ route('laporan.cetak') }}" method="POST">
+        
         @csrf
         <div class="mb-3">
             <label>Pilih Jenis Surat</label><br>
@@ -19,6 +20,7 @@
             <input type="date" name="tanggal" class="form-control" required>
         </div>
         <button type="submit" class="btn btn-primary">Cetak</button>
+      
     </form>
 </div>
 @endsection

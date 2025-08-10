@@ -53,22 +53,6 @@
     </div>
 
     <div class="row justify-content-center g-4">
-
-        <!-- Web A -->
-        <div class="col-md-5 col-lg-4">
-            <div class="card p-4 text-center shadow-sm rounded-4 h-100">
-                <div class="icon-box mb-3">
-                    <i class="fas fa-envelope-open-text"></i>
-                </div>
-                <h4 class="fw-bold">Surat Menyurat</h4>
-                <p class="text-muted">Kelola surat masuk, keluar, dan disposisi di lingkungan pemerintahan desa.</p>
-                <a href="{{ url('web-a') }}" class="btn btn-primary btn-custom">
-                    <i class="fas fa-sign-in-alt me-1"></i> Masuk Ke Web
-                </a>
-            </div>
-        </div>
-
-        <!-- Web B -->
         <div class="col-md-5 col-lg-4">
             <div class="card p-4 text-center shadow-sm rounded-4 h-100">
                 <div class="icon-box mb-3">
@@ -77,6 +61,19 @@
                 <h4 class="fw-bold">Data Kependudukan</h4>
                 <p class="text-muted">Akses dan kelola data penduduk secara digital dan terpusat.</p>
                 <a href="{{ url('web-b') }}" class="btn btn-success btn-custom">
+                    <i class="fas fa-sign-in-alt me-1"></i> Masuk Ke Web
+                </a>
+            </div>
+        </div>
+        
+        <div class="col-md-5 col-lg-4">
+            <div class="card p-4 text-center shadow-sm rounded-4 h-100">
+                <div class="icon-box mb-3">
+                    <i class="fas fa-envelope-open-text"></i>
+                </div>
+                <h4 class="fw-bold">Surat Menyurat</h4>
+                <p class="text-muted">Kelola surat masuk, keluar, dan disposisi di lingkungan pemerintahan desa.</p>
+                <a href="{{ url('web-a') }}" class="btn btn-primary btn-custom">
                     <i class="fas fa-sign-in-alt me-1"></i> Masuk Ke Web
                 </a>
             </div>

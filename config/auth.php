@@ -18,7 +18,7 @@ return [
         'provider' => 'pengguna', // Guard tambahan → untuk table pengguna
     ],
 ],
-
+ 
 'providers' => [
     'users' => [
         'driver' => 'eloquent',
